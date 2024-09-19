@@ -20,6 +20,16 @@
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
         };
+
+        long_tap_hold: long_tap_hold {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LONG_TAP_HOLD";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            flavor = "tap-preferred";
+        };
     };
 
     keymap {
@@ -33,10 +43,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&bt BT_SEL 0  &tap_hold DOUBLE_QUOTES Q  &tap_hold COLON W         &tap_hold EQUAL F  &tap_hold UNDERSCORE P  &kp B                       &kp J                           &kp L      &kp U      &kp Y    &kp SEMICOLON  &kp BACKSLASH
-&kp MINUS     &tap_hold LEFT_ALT A       &tap_hold LEFT_COMMAND R  &tap_hold LCTRL S  &tap_hold LEFT_SHIFT T  &kp G                       &kp M                           &kp N      &kp E      &kp I    &kp O          &kp SQT
-&kp ESC       &kp Z                      &kp X                     &kp C              &kp D                   &kp V                       &kp K                           &kp H      &kp COMMA  &kp DOT  &kp FSLH       &kp GRAVE
-                                                                   &mo 1              &kp BACKSPACE           &tap_hold LEFT_SHIFT TAB    &tap_hold LS(RIGHT_GUI) RETURN  &kp SPACE  &mo 2
+&bt BT_SEL 0  &tap_hold DOUBLE_QUOTES Q  &tap_hold COLON W         &tap_hold EQUAL F  &tap_hold UNDERSCORE P  &kp B                       &kp J                           &kp L               &kp U              &kp Y                      &kp SEMICOLON          &kp BACKSLASH
+&kp MINUS     &long_tap_hold LEFT_ALT A  &tap_hold LEFT_COMMAND R  &tap_hold LCTRL S  &tap_hold LEFT_SHIFT T  &kp G                       &kp M                           &tap_hold RSHIFT N  &tap_hold RCTRL E  &tap_hold RIGHT_COMMAND I  &tap_hold RIGHT_ALT O  &kp SQT
+&kp ESC       &kp Z                      &kp X                     &kp C              &kp D                   &kp V                       &kp K                           &kp H               &kp COMMA          &kp DOT                    &kp FSLH               &kp GRAVE
+                                                                   &mo 1              &kp BACKSPACE           &tap_hold LEFT_SHIFT TAB    &tap_hold LS(RIGHT_GUI) RETURN  &kp SPACE           &mo 2
             >;
         };
 
